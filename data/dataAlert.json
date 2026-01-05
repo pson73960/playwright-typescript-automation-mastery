@@ -1,0 +1,23 @@
+[
+    {
+      "id": "TC_01",
+      "caseName": "Simple Alert Check",
+      "actionType": "alert",
+      "input": "",
+      "expectedResult": "You successfully clicked an alert"
+    },
+    {
+      "id": "TC_02",
+      "caseName": "Confirm Cancel Check",
+      "actionType": "confirm",
+      "confirmAction": "cancel",
+      "expectedResult": "You clicked: Cancel"
+    },
+    {
+      "id": "TC_03",
+      "caseName": "Prompt Input Success",
+      "actionType": "prompt",
+      "input": "Gemini AI",
+      "expectedResult": "You entered: Gemini AI"
+    }
+  ]

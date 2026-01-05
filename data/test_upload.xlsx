@@ -1,0 +1,4 @@
+VIN,RecallCode,Status
+VCI0001,RECALL_A1,Active
+VCI0002,RECALL_B2,Pending
+VCI0003,RECALL_C3,Completed

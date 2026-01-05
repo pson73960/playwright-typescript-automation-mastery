@@ -1,0 +1,5 @@
+[
+  { "model": "Volkswagen", "expectedCount": 1 },
+  { "model": "Audi", "expectedCount": 1 },
+  { "model": "Toyota", "expectedCount": 0 }
+]
