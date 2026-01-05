@@ -33,15 +33,16 @@ export default defineConfig({
     /* Base URL to use in actions like `await page.goto('')`. */
     //baseURL: 'https://practice.expandtesting.com',
     launchOptions: {
-      slowMo: 200, // Nó sẽ dừng 1 giây (1000ms) sau mỗi hành động (click, fill...)
+      slowMo: process.env.CI ? 0 : 200, // Nó sẽ dừng 1 giây (1000ms) sau mỗi hành động (click, fill...)
     },
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    headless: false,
+    headless: process.env.CI ? true : false,
     //screenshot: 'only-on-failure',
   // Quay video cho mỗi bài test (hoặc 'retain-on-failure' để chỉ giữ video bài lỗi)
   //video: 'on',
   // Ghi lại Trace (dòng thời gian chi tiết) để debug cực xịn
-  //trace: 'retain-on-failure',
+  trace: 'retain-on-failure',
+  screenshot: 'only-on-failure',
   },
 
   /* Configure projects for major browsers */
