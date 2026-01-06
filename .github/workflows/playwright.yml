@@ -5,6 +5,15 @@ on:
   pull_request:
     branches: [ main, master ]
   workflow_dispatch:
+   inputs: 
+    environment: 
+        description: "Select environment to run tests" 
+        required: true 
+        default: "qa" 
+        type: choice 
+        options: 
+        - qa 
+        - uat
 
 jobs:
   test:
@@ -24,7 +33,8 @@ jobs:
 
     - name: Run Playwright tests
       env:
-        BASE_URL: ${{ secrets.BASE_URL }}
+        ENV: ${{ github.event.inputs.environment || 'qa' }}
+        BASE_URL: ${{ github.event.inputs.environment == 'uat' && secrets.BASE_URL_UAT || secrets.BASE_URL_QA }}
         ADMIN_USER: ${{ secrets.ADMIN_USER }}
         ADMIN_PASSWORD: ${{ secrets.ADMIN_PASSWORD }}
         TIMEOUT: ${{ secrets.TIMEOUT }}
